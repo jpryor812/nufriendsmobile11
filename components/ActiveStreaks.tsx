@@ -1,0 +1,94 @@
+import React from 'react';
+import { View, Text, ScrollView, StyleSheet, SafeAreaView } from 'react-native';
+
+const StreakItem = ({ streak, name }) => (
+  <View style={styles.streakItem}>
+    <View style={styles.leftContainer}>
+      <Text style={styles.fireEmoji}>🔥</Text>
+      <Text style={styles.streakNumber}>{streak} days</Text>
+    </View>
+    <View style={styles.rightContainer}>
+      <View style={styles.blueCircle} />
+      <Text style={styles.name}>{name}</Text>
+    </View>
+  </View>
+);
+
+const ActiveStreaks = () => {
+  const streaks = [
+    { streak: 17, name: 'PChak55' },
+    { streak: 11, name: 'AlexD33' },
+    { streak: 8, name: 'OnDeck02' },
+    { streak: 5, name: 'AJones' },
+    // Add more streak data as needed
+  ];
+
+  return (
+    <SafeAreaView style={styles.container}>
+      <Text style={styles.title}>Active Streaks</Text>
+      <ScrollView style={styles.scrollView}>
+        {streaks.map((item, index) => (
+          <StreakItem key={index} {...item} />
+        ))}
+      </ScrollView>
+    </SafeAreaView>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    padding: 10,
+    marginTop: 5,
+    backgroundColor: '#fff',
+    alignItems: 'center'
+  },
+  title: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginBottom: 10,
+    textAlign: 'center',
+  },
+  scrollView: {
+    maxHeight: 90, // Adjust this value as needed
+  },
+  streakItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 10,
+    width: '100%',
+  },
+  leftContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    width: 100, // Fixed width for alignment
+    marginRight: 40,
+  },
+  rightContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginLeft: 40,
+  },
+  fireEmoji: {
+    fontSize: 18,
+    marginRight: 10,
+  },
+  streakNumber: {
+    fontSize: 15,
+    fontWeight: 'bold',
+    marginRight: 10,
+    width: 80, // Fixed width for alignment
+  },
+  blueCircle: {
+    width: 20,
+    height: 20,
+    borderRadius: 15,
+    backgroundColor: 'blue',
+    marginRight: 10,
+  },
+  name: {
+    fontSize: 15,
+  },
+});
+
+export default ActiveStreaks;

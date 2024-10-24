@@ -22,14 +22,16 @@ const HeaderButtons: React.FC<ButtonProps> = ({ onPressFindFriends, onPressUpgra
 const styles = StyleSheet.create({
   buttonContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
     alignItems: 'flex-start',
     paddingTop: 10,
     paddingBottom: 10,
+    marginRight: 20,
+    marginLeft: 20,
   },
   button: {
     padding: 10,
-    width: '25%',
+    width: '27.5%',
     backgroundColor: '#FFE074',
     justifyContent: 'center',
     alignItems: 'center',

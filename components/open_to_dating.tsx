@@ -36,11 +36,11 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginVertical: 10,
+    marginTop: 10,
     justifyContent: 'center'
   },
   label: {
-    fontSize: 16,
+    fontSize: 14,
     marginRight: 10,
   },
   toggleContainer: {
@@ -51,8 +51,8 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
   },
   toggleOption: {
-    paddingHorizontal: 15,
-    paddingVertical: 5,
+    paddingHorizontal: 12,
+    paddingVertical: 2,
     backgroundColor: '#fff',
   },
   selectedOption: {

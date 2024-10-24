@@ -13,6 +13,7 @@ const FriendProfileVertical: React.FC<FriendProfileVerticalProps> = ({ imageSour
       <View style={styles.friendContainer}>
         <Image source={imageSource} style={styles.profilePicture} resizeMode="contain" />
         <Text style={styles.profileNameText}>{name}</Text>
+        <Text>Pittsburgh, PA</Text>
       </View>
     </View>
   );

@@ -1,14 +1,13 @@
 import React from 'react';
-import { View, StyleSheet, Text, TouchableOpacity, Image, SafeAreaView } from 'react-native';
+import { View, StyleSheet, SafeAreaView } from 'react-native';
 import HeaderButtons from '../components/header_buttons';
 import FriendProfileVertical from '../components/friend_profile_vertical';
 import DatingToggle from '../components/open_to_dating';
 import MessageStatsChart from '../components/message_stats_chart';
+import ActiveStreaks from '../components/ActiveStreaks';
+import StatsBar from '../components/user_stats_bar';
+import AchievementsSection from '@/components/AchievementsSection';
 
-// Add type for navigation if using TypeScript
-type NavigationProp = {
-  goBack: () => void;
-};
 
 const ProfilePage = () => {
 
@@ -20,16 +19,9 @@ const ProfilePage = () => {
     console.log('Upgrade');
   };
 
-  const handleGoBack = () => {
-    console.log('Go back');
-  };
-
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.headerContainer}>
-        <TouchableOpacity onPress={handleGoBack} style={styles.backButton}>
-          <Text>← Back</Text>
-        </TouchableOpacity>
         <HeaderButtons 
           onPressFindFriends={handleFindFriends}
           onPressUpgrade={handleUpgrade}
@@ -50,6 +42,9 @@ const ProfilePage = () => {
           subtitle="Messages sent over the week"
         />
       </View>
+      <StatsBar />
+      <ActiveStreaks />
+      <AchievementsSection />
     </SafeAreaView>
   );
 };
@@ -59,21 +54,12 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#F0FCFE', // Match your app's background color
   },
-  headerContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingHorizontal: 16,
-  },
-  backButton: {
-    padding: 10,
-  },
   friendProfileContainer: {
-    marginTop: 20,
+    marginTop: 5,
     alignItems: 'center',
   },
   chartContainer: {
-    marginTop: 20,
-    paddingHorizontal: 16,
+    backgroundColor: '#F0FCFE'
   },
 });
 
