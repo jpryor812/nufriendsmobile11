@@ -1,6 +1,5 @@
 import React from 'react';
 import { View, StyleSheet, Text, TouchableOpacity, Image, SafeAreaView } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
 import HeaderButtons from '../components/header_buttons';
 import FriendProfileVertical from '../components/friend_profile_vertical';
 import DatingToggle from '../components/open_to_dating';
@@ -12,7 +11,6 @@ type NavigationProp = {
 };
 
 const ProfilePage = () => {
-  const navigation = useNavigation<NavigationProp>();
 
   const handleFindFriends = () => {
     console.log('Find friends');
@@ -23,7 +21,7 @@ const ProfilePage = () => {
   };
 
   const handleGoBack = () => {
-    navigation.goBack();
+    console.log('Go back');
   };
 
   return (

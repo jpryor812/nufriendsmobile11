@@ -1,47 +1,43 @@
 import React from 'react';
-import { SafeAreaView, View, StyleSheet, TouchableOpacity, Text } from 'react-native';
+import { View, StyleSheet, SafeAreaView } from 'react-native';
 import HeaderButtons from '../components/header_buttons';
-import MessageList from '../components/messages_list';
-import FooterNavigation from '../components/FooterNavigation';
-import ProfilePage from './ProfilePage';
+import FriendProfileVertical from '../components/friend_profile_vertical';
+import DatingToggle from '../components/open_to_dating';
+import MessageStatsChart from '../components/message_stats_chart';
 
-// Add type for navigation if using TypeScript
-const HomePage = () => {
-    const navigation = useNavigation();
-  
-    // Simple one-line navigation
-    const navigateToProfile = () => navigation.navigate('ProfilePage');
+const ProfilePage = () => {
 
   const handleFindFriends = () => {
-    console.log('Find New Friends pressed');
+    console.log('Find friends');
   };
 
   const handleUpgrade = () => {
-    console.log('Upgrade to Premium pressed');
-  };
-
-  const handleSeeMore = () => {
-    console.log("See More pressed");
+    console.log('Upgrade');
   };
 
   return (
     <SafeAreaView style={styles.container}>
-      <HeaderButtons 
-        onPressFindFriends={handleFindFriends}
-        onPressUpgrade={handleUpgrade}
-      />
-      <View style={styles.introContainer}>
-        <Text style={styles.welcomeBackMessage}>
-          Welcome back, Justin! You've made 4 new friends and sent 123 messages this week!
-        </Text>
-        <TouchableOpacity onPress={navigateToProfile}>
-          <Text style={styles.seeMore}>See More</Text>
-        </TouchableOpacity>
-      </View>    
-      <View style={styles.messageContainer}>
-        <MessageList />
+      <View style={styles.headerContainer}>
+        <HeaderButtons 
+          onPressFindFriends={handleFindFriends}
+          onPressUpgrade={handleUpgrade}
+        />
       </View>
-      <FooterNavigation onProfilePress={navigateToProfile} />
+      <View style={styles.friendProfileContainer}>
+        <FriendProfileVertical 
+          imageSource={require('../assets/images/profile_picture.jpg')} 
+          name="Jpp123" 
+          onPress={() => console.log('Friend profile pressed')}
+        />
+        <DatingToggle />
+      </View>
+      <View style={styles.chartContainer}>
+        <MessageStatsChart 
+          data={[10, 20, 30, 40, 50, 60, 70]}
+          title="Weekly Activity"
+          subtitle="Messages sent over the week"
+        />
+      </View>
     </SafeAreaView>
   );
 };
@@ -49,28 +45,21 @@ const HomePage = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F0FCFE',
+    backgroundColor: '#F0FCFE', // Match your app's background color
   },
-  introContainer: {
-    width: '80%',
-    alignSelf: 'center',
+  headerContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 16,
   },
-  welcomeBackMessage: {
-    fontStyle: 'italic',
-    fontSize: 13,
-    color: '#9d9d9d',
-    marginTop: 10,
+  friendProfileContainer: {
+    marginTop: 20,
+    alignItems: 'center',
   },
-  seeMore: {
-    textDecorationLine: 'underline',
-    fontSize: 13,
-    color: '#9d9d9d',
-    alignSelf: 'flex-end',
-    marginBottom: 5
+  chartContainer: {
+    marginTop: 20,
+    paddingHorizontal: 16,
   },
-  messageContainer: {
-    flex: 1,
-  }
 });
 
-export default HomePage;
+export default ProfilePage;

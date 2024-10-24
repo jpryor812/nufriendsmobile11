@@ -8,6 +8,7 @@ import ProfilePage from './ProfilePage';
 // Add type for navigation if using TypeScript
 const HomePage = () => {
 
+
   const handleFindFriends = () => {
     console.log('Find New Friends pressed');
   };
