@@ -2,19 +2,29 @@ import React from 'react';
 import { View, Image, Text, StyleSheet } from 'react-native';
 import AchievementContainer from './AchievementContainer';
 
-const StreakAchievement: React.FC<StreakAchievementProps> = ({ days, fireCount, isLocked }) => {
+interface StreakAchievementProps {
+    days: number;
+    fireCount: number;
+    isLocked: boolean;
+  }
+
+  const StreakAchievement: React.FC<StreakAchievementProps> = ({ days, fireCount, isLocked }) => {
     const renderFireEmojis = () => {
-    return Array(fireCount).fill().map((_, index) => (
-      <Image 
-        key={index}
-        source={require('../assets/images/fire emoji (1).png')}
-        style={[
-          styles.fireEmoji,
-          index > 0 && styles.overlappingFireEmoji
-        ]}
-      />
-    ));
-  };
+      return Array(fireCount).fill(null).map((_, index) => {
+        const imagePath = '../assets/images/fire emoji (1).png';
+        console.log(`Loading image at path: ${imagePath}`);
+        return (
+          <Image 
+            key={index}
+            source={require(imagePath)}
+            style={[
+              styles.fireEmoji,
+              index > 0 && styles.overlappingFireEmoji
+            ]}
+          />
+        );
+      });
+    };
 
   return (
     <AchievementContainer isLocked={isLocked}>
@@ -45,6 +55,7 @@ const styles = StyleSheet.create({
     },
     achievementText: {
       fontFamily: 'Roboto',
+      fontWeight: 'bold',
       fontSize: 12,
       color: '#42ade2',
       textAlign: 'center',

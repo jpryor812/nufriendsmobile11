@@ -3,12 +3,12 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   achievementContainerAndLine: {
     alignItems: 'center',
-    marginHorizontal: 20,
+    justifyContent: 'space-around',
   },
   achievementContainer: {
-    width: 90,
-    height: 90,
-    borderWidth: 8,
+    width:90,
+    height: 95,
+    borderWidth: 7,
     borderRadius: 25,
     alignItems: 'center',
     justifyContent: 'center',
@@ -23,16 +23,17 @@ const styles = StyleSheet.create({
   },
   verticalLine: {
     width: 2,
-    height: 60,
-    backgroundColor: '#c7c7c7',
+    height: 40,
+    backgroundColor: '#e5e5e5',
     marginTop: -8,
+    marginBottom: 8,
   },
   trophyIcon: {
     position: 'absolute',
-    top: -20,
-    right: -15,
-    width: 35,
-    height: 35,
+    top: -15,
+    right: -10,
+    width: 25,
+    height: 25,
   },
 });
 

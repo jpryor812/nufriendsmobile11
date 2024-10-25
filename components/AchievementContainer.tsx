@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { View, Image } from 'react-native';
 import styles from './AchievementsStyles';  // Remove 'AchievementsStyles' and just use 'styles'
 
-const AchievementContainer = ({ children, isLocked }) => {
+// Define the props interface
+interface AchievementContainerProps {
+  children: ReactNode;
+  isLocked: boolean;
+}
+
+const AchievementContainer: React.FC<AchievementContainerProps> = ({ children, isLocked }) => {
   return (
     <View style={styles.achievementContainerAndLine}>
       <View style={[

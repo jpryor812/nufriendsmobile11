@@ -19,18 +19,15 @@ const ActiveStreaks = () => {
     { streak: 17, name: 'PChak55' },
     { streak: 11, name: 'AlexD33' },
     { streak: 8, name: 'OnDeck02' },
-    { streak: 5, name: 'AJones' },
     // Add more streak data as needed
   ];
 
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.title}>Active Streaks</Text>
-      <ScrollView style={styles.scrollView}>
         {streaks.map((item, index) => (
           <StreakItem key={index} {...item} />
         ))}
-      </ScrollView>
     </SafeAreaView>
   );
 };
@@ -47,9 +44,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 10,
     textAlign: 'center',
-  },
-  scrollView: {
-    maxHeight: 90, // Adjust this value as needed
   },
   streakItem: {
     flexDirection: 'row',

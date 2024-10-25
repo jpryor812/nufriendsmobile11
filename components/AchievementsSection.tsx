@@ -4,7 +4,7 @@ import MessageAchievement from './MessageAchievement';
 import StreakAchievement from './StreakAchievement';
 import MutualFriendAchievement from './MutualFriendAchievement';
 
-const AchievementsSectionBackup = () => {
+const AchievementsSection = () => {
   return (
     <View style={styles.achievementsContainer}>
       {/* Messages Row */}
@@ -17,29 +17,32 @@ const AchievementsSectionBackup = () => {
       {/* Streaks Row */}
       <View style={styles.achievementsRow}>
         <StreakAchievement days={5} fireCount={1} isLocked={false} />
-        <StreakAchievement days={10} fireCount={2} isLocked={false} />
-        <StreakAchievement days={25} fireCount={4} isLocked={true} />
+        <StreakAchievement days={10} fireCount={2} isLocked={true} />
+        <StreakAchievement days={25} fireCount={3} isLocked={true} />
       </View>
 
       {/* Mutual Friends Row */}
       <View style={styles.achievementsRow}>
-        <MutualFriendAchievement count={1} isLocked={false} />
-        <MutualFriendAchievement count={5} isLocked={false} />
-        <MutualFriendAchievement count={10} isLocked={true} />
+        <MutualFriendAchievement friends={2} handCount={1} isLocked={false} />
+        <MutualFriendAchievement friends={5} handCount={2} isLocked={false} />
+        <MutualFriendAchievement friends={10} handCount={3} isLocked={true} />
       </View>
     </View>
   );
 };
 const styles = StyleSheet.create({
     achievementsContainer: {
-      padding: 16,
+      padding: 12,
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-around',
     },
     achievementsRow: {
-      flexDirection: 'row',
+      flexDirection: 'column',
       justifyContent: 'center',
-      alignItems: 'flex-start',
+      alignItems: 'center',
       marginVertical: 8,
     },
   });
 
-export default AchievementsSectionBackup;
+export default AchievementsSection;

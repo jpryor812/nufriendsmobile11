@@ -21,12 +21,10 @@ const ProfilePage = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.headerContainer}>
         <HeaderButtons 
           onPressFindFriends={handleFindFriends}
           onPressUpgrade={handleUpgrade}
         />
-      </View>
       <View style={styles.friendProfileContainer}>
         <FriendProfileVertical 
           imageSource={require('../assets/images/profile_picture.jpg')} 
